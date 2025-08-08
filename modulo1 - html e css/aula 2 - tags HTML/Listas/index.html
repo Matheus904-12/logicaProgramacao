@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+    <style>
+        body{
+            background-color: wheat;
+        }
+        #centro > ol{
+            display: inline-block;
+        }
+        ol{
+            color: rgb(143, 4, 4);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            color: rgb(179, 118, 6);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #centro > ul{
+            display: inline-block;
+        }
+        ul{
+            color: rgb(143, 4, 4);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h3{
+            color: rgb(48, 87, 88);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+        h2{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #centro{
+            text-align: center;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.425);
+        }
+
+        #alinhadas{
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.425);
+        }
+    </style>
+</head>
+<body>
+    <div id="centro">
+        <h1>Listas no HTML</h1>
+        <h2>Listas Ordenadas</h2>
+        <h3>Tarefas do dia</h3>
+        <ol type="1" start="10" reversed>
+            <li>Lavar a louça</li>
+            <li>Fazer a lição</li>
+            <li>Passear com o cachorro</li>
+            <li>Varrer a casa</li>
+            <li>Passar pano</li>
+            <li><strong>Fazer a janta</strong></li>
+        </ol>
+        <h2>Listas não Ordenadas</h2>
+        <h3>Frutas</h3>
+        <ul type='disc'>
+            <li>Banana</li>
+            <li>Maçã</li>
+            <li>Uva</li>
+        </ul>
+    </div>
+    <h3>Linhas Alinhadas</h3>
+    <div id="alinhadas">
+        <ol>
+            <li>Animais
+                <ul type="disc">
+                    <li>Cachorro</li>
+                    <li>Gato</li>
+                </ul>
+            </li>
+            <li>Veículos
+                <ul type="disc">
+                    <li>Carro</li>
+                    <li>Moto</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>
