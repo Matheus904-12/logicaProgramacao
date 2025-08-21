@@ -29,17 +29,17 @@ p{
     color: #E74C3C;
 }
 
-#two, .green{
+.green{
     color: #30AE60;
     background-color: #E9F7EF;
 }
 
-#three, .orange{
+.orange{
     color: #F39C11;
     background-color: #FFF3E6;
 }
 
-#four, .purple{
+.purple{
     color: #8E44AD;
     background-color: #F5E6F5;
 }
