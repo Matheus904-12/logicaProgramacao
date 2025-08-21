@@ -1,0 +1,45 @@
+body{
+    width: 50vw;
+    margin: auto;
+}
+
+h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+h2{
+    font-size: 28px;
+}
+
+p{
+    line-height: 1.4;
+    font-size: 1em;
+    color: #34495e;
+    text-align: justify;
+}
+
+#one{
+    background-color: #ECF0F1;
+    color: #2C3E50;
+}
+
+.pink{
+    background-color: #F9EBEA;
+    color: #E74C3C;
+}
+
+#two, .green{
+    color: #30AE60;
+    background-color: #E9F7EF;
+}
+
+#three, .orange{
+    color: #F39C11;
+    background-color: #FFF3E6;
+}
+
+#four, .purple{
+    color: #8E44AD;
+    background-color: #F5E6F5;
+}
