@@ -1,0 +1,49 @@
+main{
+    width: 50vw;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#one{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+/*
+
+*/
+p{
+    text-decoration: underline;
+    text-align: center;
+}
+
+#two{
+    background-color: purple;
+    color: yellow;
+    border: 2px solid orange;
+}
+
+#three{
+    background-color: blue;
+    color: red;
+    border: 2px solid purple;
+}
+
+.par1{
+    border: 1px solid black;
+    background-color: rgb(187, 185, 185);
+}
+
+.par2{
+    border: 1px solid purple;
+    background-color: rgb(169, 122, 210);
+}
+
+.par3{
+    border: 1px solid red;
+    background-color: rgb(138, 194, 214);
+}
