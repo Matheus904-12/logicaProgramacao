@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padding</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            /*
+            content-box: soma o conteudo com o padding/margim
+            border-box: define o tamnho pela caixa, entã ose você colocar em 500px, a caixa irá ter 500px contando conteudo e padding/margin 
+            */
+        }
+
+        main{
+            width: 50vw;
+            margin: auto;
+            border: 1px solid black;
+            border-radius: 15px;
+            box-shadow:  1px 1px 5px rgba(0, 0, 0, 0.334);
+            padding: 30px 20px 30px 20px;
+        }
+
+        div{
+            margin: 10px;
+            margin-left: 20px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="box1">
+            Esta é a primeira caixa
+        </div>
+        <div id="box2">
+            Esta é a segunda caixa
+        </div>
+        <div id="box3">
+            Esta é a terceira caixa
+        </div>
+</body>
+</html>
