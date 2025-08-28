@@ -1,0 +1,110 @@
+@import url("color.css");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-image: linear-gradient(to bottom , var(--header-color-inicial), var(--header-color-final));
+    color: var(--color-letra-link);
+    padding: 15px;
+    text-align: center;
+}
+
+header > h1 {
+    font-size: 3.2rem;
+    margin-top: 15px;
+    text-shadow: 3px 3px 9px white;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+header > p {
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+nav {
+    margin-bottom: 16px;
+    margin-top: 30px;
+    
+}
+
+nav > a {
+    text-decoration: none;
+    color: var(--color-letra-link);
+    background-color: var(--color-main-button);
+    border-radius: 25px;
+    padding: 10px;
+    border: 1px solid #e9e9e99c;
+    display: inline-block;
+}
+
+nav > a:hover {
+    transform: scale(1.05);
+    transition: 0.9s ease-in-out;
+}
+
+img {
+    width: 100%;
+    height: 160px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+main {
+    text-align: center;
+}
+
+main > h2 {
+    text-align: center;
+    padding: 20px;
+} 
+
+
+.card-receita {
+    display: inline-block;
+    background-color: white;
+    width: 200px;
+    height: 270px;
+    border-radius: 25px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 1px 1px 5px #0000002c;
+}
+
+.card-receita > h3 {
+    font-size: 17px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card-receita > a {
+    text-decoration: none;
+    color: var(--color-letra-link);
+    background-color: var(--color-receita-button);
+    border-radius: 15px;
+    padding: 10px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.card-receita > a:hover {
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    color: var(--color-rodade);
+    position: fixed;
+    bottom: 0;
+}
