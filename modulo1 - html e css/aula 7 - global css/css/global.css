@@ -1,0 +1,51 @@
+@import url("color.css");
+
+.img1 {
+    width: 100%;
+    height: 160px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+main {
+    text-align: center;
+}
+
+main > h2 {
+    text-align: center;
+    padding: 20px;
+} 
+
+
+.card-receita {
+    display: inline-block;
+    background-color: white;
+    width: 200px;
+    height: 270px;
+    border-radius: 25px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 1px 1px 5px #0000002c;
+}
+
+.card-receita > h3 {
+    font-size: 17px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card-receita > a {
+    text-decoration: none;
+    color: var(--color-letra-link);
+    background-color: var(--color-receita-button);
+    border-radius: 15px;
+    padding: 10px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.card-receita > a:hover {
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}

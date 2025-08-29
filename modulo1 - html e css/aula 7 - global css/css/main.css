@@ -1,0 +1,62 @@
+main {
+    text-align: center;
+    padding: 20px 0; /* Adiciona um espaço acima e abaixo do conteúdo principal */
+    background-color: #f9f9f9;
+}
+
+.receita {
+    background-color: #ffffff; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    margin: 20px auto; /* Centraliza a div e adiciona margem */
+    width: 80%;
+    max-width: 900px; 
+}
+
+.titulo-receita {
+    font-size: 2.5em;
+    color: #4a2c2a;
+    margin-bottom: 20px;
+}
+
+.bolo-imagem {
+    width: 100%; 
+    max-width: 450px; 
+    height: auto; 
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.text {
+    padding-bottom: 15px;
+    color: #d9534f; 
+    border-bottom: 2px solid #f0e4e4;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.ingredientes, .preparo {
+    text-align: left; 
+    display: inline-block; 
+    width: 90%;
+    margin-top: 20px;
+}
+
+.ingredientes ul, .preparo ol {
+    padding-left: 25px;
+}
+
+.ingredientes li, .preparo li {
+    margin-bottom: 10px; 
+    line-height: 1.6; 
+    font-size: 1.1em;
+}
+
+h4 {
+    font-size: 1.3em;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
