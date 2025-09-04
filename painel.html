@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Lógica de Programação - HTML & CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px;
+        }
+        h1 {
+            text-align: center;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+        h2 {
+            color: #6366f1;
+            margin-top: 32px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+        .card {
+            background: #f1f5f9;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+            padding: 24px 20px;
+            min-width: 220px;
+            max-width: 300px;
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 24px rgba(59,130,246,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #2563eb;
+            font-size: 1.15rem;
+        }
+        .card ul {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 0 8px;
+        }
+        .card li {
+            margin-bottom: 6px;
+        }
+        .card a {
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .card a:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+        .desafio-card {
+            border-left: 6px solid #f59e42;
+        }
+        @media (max-width: 900px) {
+            .container {
+                padding: 12px;
+            }
+            .cards {
+                gap: 12px;
+            }
+            .card {
+                min-width: 220px;
+                max-width: 48vw;
+            }
+        }
+        @media (max-width: 600px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+            .card {
+                min-width: 96vw;
+                max-width: 99vw;
+                padding: 18px 10px;
+                font-size: 1rem;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            .card h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Painel de Lógica de Programação</h1>
+        <p>Bem-vindo! Este painel reúne todas as aulas e desafios do curso de Lógica de Programação com HTML & CSS. Clique nos links para acessar o conteúdo de cada aula e praticar os exercícios.</p>
+        <h2>Módulo 1 - HTML & CSS</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Aula 1 - Inaugural</h3>
+                <a href="Módulo 1 - HTML & CSS/aula 1 - inaugural/index.html" target="_blank">Introdução ao curso</a>
+            </div>
+            <div class="card">
+                <h3>Aula 2 - Tags</h3>
+                <ul>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/index.html" target="_blank">Tags básicas</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/hyperlink/index.html" target="_blank">Hyperlinks</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/hyperlink/cursos.html" target="_blank">Exemplo de Cursos</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/Listas/index.html" target="_blank">Listas</a></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Aula 3 - Semântica</h3>
+                <ul>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/index.html" target="_blank">Página principal</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/bolo_cenoura.html" target="_blank">Bolo de Cenoura</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/bolo_chocolate.html" target="_blank">Bolo de Chocolate</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/strogonoff.html" target="_blank">Strogonoff</a></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Aula 4 - CSS</h3>
+                <ul>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/externo/index.html" target="_blank">CSS Externo</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/inline/index.html" target="_blank">CSS Inline</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/interno/index.html" target="_blank">CSS Interno</a></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Aula 5 - Seletores</h3>
+                <a href="Módulo 1 - HTML & CSS/aula 5 - seletores/index.html" target="_blank">Seletores</a>
+            </div>
+            <div class="card">
+                <h3>Aula 6 - Box Model</h3>
+                <ul>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/border/index.html" target="_blank">Border</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/border/desafio.html" target="_blank">Desafio Border</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/padding e margin/index.html" target="_blank">Padding e Margin</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/roupas/index.html" target="_blank">Exemplo Roupas</a></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Aula 7 - Global CSS</h3>
+                <ul>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/index.html" target="_blank">Página principal</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/cenoura.html" target="_blank">Cenoura</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/chocolate.html" target="_blank">Chocolate</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/strogonoof.html" target="_blank">Strogonoff</a></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Aula 8 - Table</h3>
+                <ul>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/form/index.html" target="_blank">Formulário</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/tabelas/index.html" target="_blank">Tabelas</a></li>
+                </ul>
+            </div>
+            <div class="card desafio-card">
+                <h3>Desafio Principal</h3>
+                <a href="Módulo 1 - HTML & CSS/desafio/index.html" target="_blank">Acessar Desafio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url(https://static.corinthians.com.br/uploads/174258098243a2348027cdb8d216f4fb15fd9e1e4f.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.tabela {
+    width: 20%;
+    height: 50%;
+    border-radius: 15px;
+    background-color: #f5ffff;
+    border: 1px #e25656;
+    box-shadow: 5px 5px 20px #504a4a8a;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
+    margin-left: 1%;
+}
+
+.table1 {
+    border: 1px solid #d4d4d4;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.header {
+    background-color: #004eb4;
+    font-size: 16px;
+    color: white;
+}
+
+.header-text {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.Clubes {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 8px;
+}
+
+.placar-globo {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #001f3f, #003366, #001f3f);
+    /* Gradiente de cor */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.placar-globo .time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Espaço entre o escudo e o nome */
+}
+
+.placar-globo .time-casa {
+    flex-direction: row;
+    /* Escudo à esquerda */
+}
+
+.placar-globo .time-visitante {
+    flex-direction: row-reverse;
+    /* Escudo à direita */
+}
+
+.placar-globo .time img {
+    width: 40px;
+    height: 40px;
+}
+
+.placar-globo .nome-time {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.placar-globo .informacoes-placar {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    /* Espaço entre os nomes dos times e o placar */
+}
+
+.placar-globo .gols {
+    font-size: 2.5em;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.placar-globo .separador {
+    font-size: 1.8em;
+    margin: 0 10px;
+    font-weight: bold;
+}
