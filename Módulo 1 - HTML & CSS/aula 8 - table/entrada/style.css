@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.cadastro {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.cadastro h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cadastro form {
+    display: flex;
+    flex-direction: column;
+}
+
+.cadastro label {
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.cadastro input[type="text"],
+.cadastro input[type="number"],
+.cadastro input[type="date"],
+.cadastro input[type="email"],
+.cadastro input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.cadastro input::placeholder {
+    color: #aaa;
+}
+
+.cadastro .bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.enviar, .limpar {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.enviar {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.enviar:hover {
+    background-color: #0056b3;
+}
+
+.limpar {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.limpar:hover {
+    background-color: #f10c23;
+}
