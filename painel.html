@@ -1,126 +1,338 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Lógica de Programação - HTML & CSS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Painel de Lógica de Programação - HTML, CSS & JavaScript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', Arial, sans-serif;
-            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #6366f1;
+            --accent-tertiary: #f59e42;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 6px 32px rgba(59, 130, 246, 0.15);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-primary: #60a5fa;
+            --accent-secondary: #818cf8;
+            --accent-tertiary: #fbbf24;
+            --border-color: #475569;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 6px 32px rgba(96, 165, 250, 0.2);
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 32px;
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
         }
-        h1 {
-            text-align: center;
-            color: #3b82f6;
-            margin-bottom: 8px;
+
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
-        h2 {
-            color: #6366f1;
-            margin-top: 32px;
-        }
-        .cards {
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            justify-content: center;
-            margin-top: 24px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
-        .card {
-            background: #f1f5f9;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .module {
+            margin-bottom: 3rem;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-card);
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(59,130,246,0.08);
-            padding: 24px 20px;
-            min-width: 220px;
-            max-width: 300px;
-            flex: 1 1 220px;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        .module-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .card-content {
+            margin-top: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            transition: box-shadow 0.2s, transform 0.2s;
+            gap: 0.5rem;
         }
-        .card:hover {
-            box-shadow: 0 6px 24px rgba(59,130,246,0.18);
-            transform: translateY(-4px) scale(1.03);
-        }
-        .card h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-            color: #2563eb;
-            font-size: 1.15rem;
-        }
-        .card ul {
-            list-style: disc inside;
-            padding-left: 0;
-            margin: 0 0 0 8px;
-        }
+
         .card li {
-            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .card li::before {
+            content: '▶';
+            color: var(--accent-primary);
+            font-size: 0.7rem;
+        }
+
         .card a {
             text-decoration: none;
-            color: #2563eb;
+            color: var(--text-secondary);
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.2s ease;
+            padding: 0.25rem 0;
+            border-radius: 4px;
         }
+
         .card a:hover {
-            color: #1e40af;
-            text-decoration: underline;
+            color: var(--accent-primary);
+            padding-left: 0.5rem;
         }
-        .desafio-card {
-            border-left: 6px solid #f59e42;
+
+        .single-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
         }
-        @media (max-width: 900px) {
+
+        .single-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+            color: white !important;
+            padding-left: 1.5rem;
+        }
+
+        .challenge-card {
+            border-left: 4px solid var(--accent-tertiary);
+            background: linear-gradient(135deg, var(--bg-card), transparent);
+        }
+
+        .challenge-card .card-icon {
+            background: linear-gradient(135deg, var(--accent-tertiary), #fb923c);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+
             .container {
-                padding: 12px;
+                padding: 0 1rem;
             }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
             .cards {
-                gap: 12px;
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
+
             .card {
-                min-width: 220px;
-                max-width: 48vw;
+                padding: 1rem;
+            }
+
+            .module-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
             }
         }
-        @media (max-width: 600px) {
-            .cards {
-                flex-direction: column;
-                align-items: center;
-                gap: 18px;
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.75rem;
             }
-            .card {
-                min-width: 96vw;
-                max-width: 99vw;
-                padding: 18px 10px;
+
+            .hero p {
                 font-size: 1rem;
             }
-            h1 {
-                font-size: 1.3rem;
-            }
-            h2 {
-                font-size: 1.1rem;
-            }
-            .card h3 {
-                font-size: 1rem;
+
+            .theme-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Painel de Lógica de Programação</h1>
-        <p>Bem-vindo! Este painel reúne todas as aulas e desafios do curso de Lógica de Programação com HTML & CSS. Clique nos links para acessar o conteúdo de cada aula e praticar os exercícios.</p>
+        <br>
+        <p>Bem-vindo! Este painel reúne todas as aulas e desafios do curso de Lógica de Programação com HTML & CSS.
+            Clique nos links para acessar o conteúdo de cada aula e praticar os exercícios.</p>
+        <br>
         <h2>Módulo 1 - HTML & CSS</h2>
+        <br>
         <div class="cards">
             <div class="card">
                 <h3>Aula 1 - Inaugural</h3>
@@ -130,26 +342,35 @@
                 <h3>Aula 2 - Tags</h3>
                 <ul>
                     <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/index.html" target="_blank">Tags básicas</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/hyperlink/index.html" target="_blank">Hyperlinks</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/hyperlink/cursos.html" target="_blank">Exemplo de Cursos</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/hyperlink/index.html"
+                            target="_blank">Hyperlinks</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/hyperlink/cursos.html" target="_blank">Exemplo de
+                            Cursos</a></li>
                     <li><a href="Módulo 1 - HTML & CSS/aula 2 - tags/Listas/index.html" target="_blank">Listas</a></li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 3 - Semântica</h3>
                 <ul>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/index.html" target="_blank">Página principal</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/bolo_cenoura.html" target="_blank">Bolo de Cenoura</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/bolo_chocolate.html" target="_blank">Bolo de Chocolate</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/strogonoff.html" target="_blank">Strogonoff</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/index.html" target="_blank">Página
+                            principal</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/bolo_cenoura.html" target="_blank">Bolo de
+                            Cenoura</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/bolo_chocolate.html" target="_blank">Bolo de
+                            Chocolate</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 3 - semantica/strogonoff.html"
+                            target="_blank">Strogonoff</a></li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 4 - CSS</h3>
                 <ul>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/externo/index.html" target="_blank">CSS Externo</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/inline/index.html" target="_blank">CSS Inline</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/interno/index.html" target="_blank">CSS Interno</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/externo/index.html" target="_blank">CSS Externo</a>
+                    </li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/inline/index.html" target="_blank">CSS Inline</a>
+                    </li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 4 - css/interno/index.html" target="_blank">CSS Interno</a>
+                    </li>
                 </ul>
             </div>
             <div class="card">
@@ -159,79 +380,126 @@
             <div class="card">
                 <h3>Aula 6 - Box Model</h3>
                 <ul>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/border/index.html" target="_blank">Border</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/border/desafio.html" target="_blank">Desafio Border</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/padding e margin/index.html" target="_blank">Padding e Margin</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/roupas/index.html" target="_blank">Exemplo Roupas</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/border/index.html" target="_blank">Border</a>
+                    </li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/border/desafio.html" target="_blank">Desafio
+                            Border</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/padding e margin/index.html"
+                            target="_blank">Padding e Margin</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 6 - box model/roupas/index.html" target="_blank">Exemplo
+                            Roupas</a></li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 7 - Global CSS</h3>
                 <ul>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/index.html" target="_blank">Página principal</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/cenoura.html" target="_blank">Cenoura</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/chocolate.html" target="_blank">Chocolate</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/strogonoof.html" target="_blank">Strogonoff</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/index.html" target="_blank">Página
+                            principal</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/cenoura.html" target="_blank">Cenoura</a>
+                    </li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/chocolate.html" target="_blank">Chocolate</a>
+                    </li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 7 - global css/strogonoof.html"
+                            target="_blank">Strogonoff</a></li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 8 - Table</h3>
                 <ul>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/form/index.html" target="_blank">Formulário</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/tabelas/index.html" target="_blank">Tabelas</a></li>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/entrada/index.html" target="_blank">Entrada</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/form/index.html" target="_blank">Formulário</a>
+                    </li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/tabelas/index.html" target="_blank">Tabelas</a>
+                    </li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 8 - table/entrada/index.html" target="_blank">Entrada</a>
+                    </li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 9 - Media Screen</h3>
                 <ul>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 9 - media/responsividade/index.html" target="_blank">Indisponivel</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 9 - media/responsividade/index.html"
+                            target="_blank">Indisponivel</a></li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 10 - FlexBox</h3>
                 <ul>
-                    <li><a href="Módulo 1 - HTML & CSS/aula 10 - flexbox/exercicio/index.html" target="_blank">Tela de Login</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 10 - flexbox/desafio/index.html" target="_blank">Tela de
+                            Login</a></li>
+                    <li><a href="Módulo 1 - HTML & CSS/aula 10 - flexbox/exercicio/index.html" target="_blank">Flex-Direction</a></li>
                 </ul>
             </div>
+        </div>
+        <br><br>
+        <h2>Módulo 2 - JavaScript</h2>
+        <br>
+        <div class="cards">
             <div class="card">
                 <h3>Aula 11 - Document.Get</h3>
                 <ul>
-                    <li><a href="Módulo 2 - JavaScript/aula 11 - node.js/variaveis/dom/index.html" target="_blank">DOM</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 11 - node.js/variaveis/dom/index.html"
+                            target="_blank">DOM</a></li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 12 - EventListener</h3>
                 <ul>
-                    <li><a href="Módulo 2 - JavaScript/aula 12 - EventListener/index.html" target="_blank">EventListener</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 12 - EventListener/index.html"
+                            target="_blank">EventListener</a></li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Aula 13 - Condições</h3>
                 <ul>
-                    <li><a href="Módulo 2 - JavaScript/aula 13 condições/condições/index.html" target="_blank">Calculadora</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 13 condições/condições/desafio/index.html"
+                            target="_blank">Calculadora</a></li>
                 </ul>
                 <ul>
-                    <li><a href="Módulo 2 - JavaScript/aula 13 condições/metodoPagamento/index.html" target="_blank">Método de Pagamento</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 13 condições/condições/desafio/metodoPagamento/index.html"
+                            target="_blank">Método de Pagamento</a></li>
                 </ul>
                 <ul>
-                    <li><a href="Módulo 2 - JavaScript/aula 13 condições/calculoMedia/index.html" target="_blank">Calculo de Média</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 13 condições/condições/desafio/calculoMedia/index.html"
+                            target="_blank">Calculo de Média - PROVA</a></li>
                 </ul>
             </div>
 
             <div class="card">
                 <h3>Aula 14 - Arrays e Objetos</h3>
                 <ul>
-                    <li><a href="Módulo 2 - JavaScript/aula 14 - Arrays e Objetos/index.html" target="_blank">Exercício</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 14 - Arrays e Objetos/array.js"
+                            target="_blank">Array</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 14 - Arrays e Objetos/arrayObject.js"
+                            target="_blank">ArrayObject</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 14 - Arrays e Objetos/loop.js"
+                            target="_blank">Loop</a></li>
+                    <li><a href="Módulo 2 - JavaScript/aula 14 - Arrays e Objetos/objeto.js"
+                            target="_blank">Objeto</a></li>
                 </ul>
             </div>
             <div class="card desafio-card">
                 <h3>Desafio Principal</h3>
-                <a href="Módulo 1 - HTML & CSS/desafio/index.html" target="_blank">Acessar Desafio</a>
-                <a href="Módulo 2 - JavaScript/aula 12 - EventListener/desafio/desafio01.html" target="_blank">Desafio 1 (Calcular Média)</a>
-                <a href="Módulo 2 - JavaScript/aula 12 - EventListener/desafio/desafio02.html" target="_blank">Desafio 2 (Mostrar e Esconder)</a>
+                <ul>
+                    <li><a href="Módulo 2 - JavaScript/aula 12 - EventListener/desafio/desafioPrincipal.html"
+                            target="_blank">Desafio Principal (Calculadora Completa)</a></li>
+                </ul>
+                <ul>
+                    <li><a href="Módulo 2 - JavaScript/aula 12 - EventListener/desafio/desafio01.html"
+                            target="_blank">Desafio 1 (Calcular Média)</a></li>
+                </ul>
+                <ul>
+                    <li><a href="Módulo 2 - JavaScript/aula 12 - EventListener/desafio/desafio02.html"
+                            target="_blank">Desafio 2 (Mostrar e Esconder)</a></li>
+                </ul>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container"
+            style="text-align: center; padding: 1rem 0; color: var(--text-secondary); font-size: 0.9rem;">
+            &copy;2025 Painel de Lógica de Programação - Matheus Lucindo dos Santos. Todos os direitos reservados.
+        </div>
+    </footer>
 </body>
+
 </html>
