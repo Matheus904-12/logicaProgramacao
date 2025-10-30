@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #007bff;
+    padding: 10px 0;
+    color: white;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+nav ul li a:hover {
+    background-color: #0056b3;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 60px); 
+    padding: 20px;
+    width: 70vw;
+    margin: auto;
+}
+
+#containerSection {
+    width: 50%;
+}
+
+section {
+    width: 80%;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#form-nota {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#curso, input[type="email"] {
+    width: 80%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+} 
+input[type="number"] {
+    width: 80%;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    text-align: center;
+} 
+
+input[type="submit"] {
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #007bff;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+table td {
+    font-size: 1em;
+    color: #333;
+}
+
+table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mensagem {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#btn-excluir {
+    background-color: #e74c3c; /* Vermelho */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+/* Alterando a cor de fundo quando o mouse passa por cima */
+#btn-excluir:hover {
+    background-color: #c0392b;
+}
+
+#botao-nota {
+    display: block;
+}

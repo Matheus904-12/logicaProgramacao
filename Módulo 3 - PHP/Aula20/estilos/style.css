@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+    background-color: #f2f2f2;
+}
+h1 {
+    color: #333;
+}
+.menu {
+    display: inline-block;
+    margin-top: 30px;
+}
+.menu a {
+    display: block;
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+}
+.menu a:hover {
+    background-color: #0056b3;
+}

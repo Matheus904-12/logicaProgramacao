@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f2f7fb;
+            margin: 0;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #334155;
+            margin-bottom: 40px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 230px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            border-top: 5px solid #2563eb;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+        }
+
+        .card i {
+            font-size: 35px;
+            color: #2563eb;
+            background-color: #dbeafe;
+            border-radius: 50%;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Sistema de Usuários</h1>
+    <p>Escolha uma das opções abaixo:</p>
+
+    <div class="menu">
+        <a href="paginas/cadastro.php" class="card">
+            <i class="fa-solid fa-user-plus"></i>
+            <h2>Cadastro</h2>
+            <p>Adicione novos usuários ao sistema.</p>
+        </a>
+
+        <a href="crud/verificarCadastro.php" class="card">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h2>Verificar Cadastro</h2>
+            <p>Consulte os dados já cadastrados.</p>
+        </a>
+
+        <a href="crud/atualizarCadastro.php" class="card">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <h2>Atualizar Cadastro</h2>
+            <p>Atualize informações dos usuários.</p>
+        </a>
+
+        <a href="crud/verificarNota.php" class="card">
+            <i class="fa-solid fa-clipboard-check"></i>
+            <h2>Verificar Nota</h2>
+            <p>Veja as notas registradas no sistema.</p>
+        </a>
+
+        <a href="crud/atualizarNota.php" class="card">
+            <i class="fa-solid fa-file-pen"></i>
+            <h2>Atualizar Nota</h2>
+            <p>Edite notas de alunos já cadastrados.</p>
+        </a>
+    </div>
+</body>
+</html>
