@@ -144,6 +144,7 @@ table {
     border-radius: 6px;
     text-align: center;
     font-weight: bold;
+    background-color: darkgreen;
 }
 
 .erro {
