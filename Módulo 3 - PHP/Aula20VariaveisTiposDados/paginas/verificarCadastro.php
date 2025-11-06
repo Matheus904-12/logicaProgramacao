@@ -1,35 +1,55 @@
 <?php
 
 include '../conexao/conexao.php';
+// Mensagem de feedback (sucesso/erro)
+$message = '';
+$email_check_done = false;
 
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // 1) Exclusão: se veio delete_id, excluir o usuário
+        if (isset($_POST['delete_id'])) {
+            $delete_id = (int) $_POST['delete_id'];
 
-        $email = $_POST['email'];
-
-        // Sanear/normalizar entradas básicas
-        $email = trim($email);
-
-        // Verifica se o email existe
-        $checkSql = "SELECT COUNT(*) AS cnt FROM usuarios WHERE email = ?";
-        $checkStmt = $conn->prepare($checkSql);
-        if ($checkStmt === false) {
-            echo "Erro no prepare (verificação): " . $conn->error;
-            $conn->close();
-            exit;
+            $delSql = "DELETE FROM usuarios WHERE id = ?";
+            $delStmt = $conn->prepare($delSql);
+            if ($delStmt === false) {
+                $message = 'Erro no prepare (delete): ' . $conn->error;
+            } else {
+                $delStmt->bind_param('i', $delete_id);
+                // Executa a exclusão
+                if ($delStmt->execute()) {
+                    $message = "Usuário (ID: $delete_id) excluído com sucesso.";
+                } else {
+                    $message = 'Erro ao excluir: ' . $delStmt->error;
+                }
+                // Fecha statement de exclusão
+                $delStmt->close();
+            }
         }
 
-        $checkStmt->bind_param("s", $email);
-        $checkStmt->execute();
-        $checkStmt->bind_result($cnt);
-        $checkStmt->fetch();
-        $checkStmt->close();
+        // 2) Verificação de email: roda somente se houver campo email enviado
+        if (isset($_POST['email']) && !empty(trim($_POST['email']))) {
+            $email = trim($_POST['email']);
+            $checkSql = "SELECT COUNT(*) AS cnt FROM usuarios WHERE email = ?";
+            $checkStmt = $conn->prepare($checkSql);
+            if ($checkStmt === false) {
+                $message = "Erro no prepare (verificação): " . $conn->error;
+            } else {
+                $checkStmt->bind_param("s", $email);
+                $checkStmt->execute();
+                $checkStmt->bind_result($cnt);
+                $checkStmt->fetch();
+                $checkStmt->close();
+                $email_check_done = true;
+            }
+        }
 
         $conn->close();
     }
 } catch (Exception $e) {
-    echo "Exceção capturada: " . $e->getMessage();
-    $conn->close();
+    $message = "Exceção capturada: " . $e->getMessage();
+    if ($conn) { $conn->close(); }
 }
 
 ?>
@@ -70,7 +90,13 @@ try {
     <section>
         <div id="resultado">
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Mostra mensagem de operação (ex.: exclusão) se existir
+            if (!empty($message)) {
+                echo "<div class='mensagem aviso'>" . htmlspecialchars($message) . "</div>";
+            }
+
+            // Se foi feita verificação de email, mostra o resultado
+            if ($email_check_done) {
                 if ($cnt > 0) {
                     echo "<div class='mensagem sucesso'>O email <strong>" . htmlspecialchars($email) . "</strong> já está cadastrado.</div>";
                 } else {
@@ -105,7 +131,7 @@ try {
                         echo "<td>" . htmlspecialchars($row['nome']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['sobrenome']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-                        echo "<td><div id='btn-excluir' data-id='" . $row['id'] . "'>Excluir</div></td>";
+                        echo "<td><form method='POST' onsubmit=\"return confirm('Confirma exclusão do usuário?');\"><input type='hidden' name='delete_id' value='" . $row['id'] . "'><button type='submit' class='btn-excluir'>Excluir</button></form></td>";
                         echo "</tr>";
                     }
                 } else {
@@ -114,6 +140,8 @@ try {
 
                 $conn->close();
                 ?>
+            </tbody>
+        </table>
     </section>
     </main>
 </body>

@@ -15,6 +15,7 @@ header {
     padding: 10px 0;
     color: white;
 }
+
 nav ul {
     list-style: none;
     display: flex;
@@ -32,6 +33,7 @@ nav ul li a {
     border-radius: 5px;
     transition: background 0.3s;
 }
+
 nav ul li a:hover {
     background-color: #0056b3;
 }
@@ -40,7 +42,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100vh - 60px); 
+    height: calc(100vh - 60px);
     padding: 20px;
     width: 70vw;
     margin: auto;
@@ -68,19 +70,21 @@ form {
     align-items: center;
 }
 
-#curso, input[type="email"] {
+#curso,
+input[type="email"] {
     width: 80%;
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ccc;
-} 
+}
+
 input[type="number"] {
     width: 80%;
     padding: 4px;
     border-radius: 4px;
     border: 1px solid #ccc;
     text-align: center;
-} 
+}
 
 input[type="submit"] {
     padding: 8px;
@@ -108,7 +112,8 @@ thead {
     color: white;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
@@ -148,12 +153,18 @@ table {
 }
 
 .erro {
+    margin-top: 15px;
     background-color: #f8d7da;
     color: #721c24;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
 }
 
 #btn-excluir {
-    background-color: #e74c3c; /* Vermelho */
+    background-color: #e74c3c;
+    /* Vermelho */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -170,4 +181,43 @@ table {
 
 #botao-nota {
     display: block;
+}
+
+/* Estilo para o botão de excluir (classe) usado no HTML */
+.btn-excluir {
+    background-color: #e74c3c;
+    /* vermelho */
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, transform 0.08s;
+    display: inline-block;
+}
+
+.btn-excluir:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+.btn-excluir:active {
+    transform: translateY(0);
+}
+
+/* Ajustes para mensagens */
+.mensagem.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.mensagem.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.mensagem.aviso {
+    background-color: #fff3cd;
+    color: #856404;
 }
