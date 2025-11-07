@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Responsividade — Demo de Media Queries</title>
+    <style>
+        :root {
+            --bg: #f3f6ff;
+            --card: #ffffff;
+            --accent: #2563eb;
+            --muted: #6b7280;
+            --pad: 16px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Inter, Segoe UI, Arial, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: #0f172a
+        }
+
+        header {
+            background: linear-gradient(90deg, #eef2ff, #fff);
+            padding: 20px;
+            border-bottom: 1px solid #e6eefc
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 18px
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 1.4rem
+        }
+
+        p.lead {
+            margin: 0 0 18px;
+            color: var(--muted)
+        }
+
+        /* breakpoint indicator (CSS-controlled via media queries) */
+        .bp-indicator {
+            position: fixed;
+            right: 14px;
+            top: 14px;
+            background: var(--card);
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.08);
+            font-weight: 600
+        }
+
+        .viewport {
+            position: fixed;
+            right: 14px;
+            top: 64px;
+            background: #fff;
+            padding: 8px 10px;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+            font-size: 0.95rem
+        }
+
+        /* sample controls */
+        .controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 18px
+        }
+
+        .controls .swatch {
+            width: 28px;
+            height: 18px;
+            border-radius: 4px;
+            border: 1px solid #e6eefc
+        }
+
+        /* grid of cards: columns change with breakpoints */
+        .grid {
+            display: grid;
+            gap: 14px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 14px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06)
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 1rem
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem
+        }
+
+        /* Default mobile-first layout: 1 column */
+        .grid {
+            grid-template-columns: 1fr
+        }
+
+        .bp-indicator::after {
+            content: "XS - mobile"
+        }
+
+        /* Small phones (>=320px) - mild changes */
+        @media (min-width:320px) {
+            .bp-indicator::after {
+                content: "SM - small phone (>=320px)"
+            }
+        }
+
+        /* Phones (>=480px) - slightly larger */
+        @media (min-width:480px) {
+            :root {
+                --pad: 18px
+            }
+
+            .card {
+                padding: 16px
+            }
+
+            .bp-indicator::after {
+                content: "MD - phone (>=480px)"
+            }
+        }
+
+        /* Tablets (>=768px) - two columns */
+        @media (min-width:768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .bp-indicator::after {
+                content: "LG - tablet (>=768px)"
+            }
+        }
+
+        /* Small laptops (>=1024px) - three columns */
+        @media (min-width:1024px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .wrap {
+                max-width: 1100px
+            }
+
+            .bp-indicator::after {
+                content: "XL - small laptop (>=1024px)"
+            }
+        }
+
+        /* Desktop (>=1366px) - four columns */
+        @media (min-width:1366px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr)
+            }
+
+            .wrap {
+                max-width: 1360px
+            }
+
+            .bp-indicator::after {
+                content: "2XL - desktop (>=1366px)"
+            }
+        }
+
+        /* Large screens / TVs (>=1600px) - increase spacing and font sizes */
+        @media (min-width:1600px) {
+            .card {
+                padding: 20px
+            }
+
+            h1 {
+                font-size: 1.6rem
+            }
+
+            .bp-indicator::after {
+                content: "TV - large screen (>=1600px)"
+            }
+        }
+
+        /* Very large TVs: change background for clarity */
+        @media (min-width:1920px) {
+            body {
+                background: linear-gradient(180deg, #f6f9ff, #ffffff)
+            }
+
+            .bp-indicator::after {
+                content: "4K / Very large (>=1920px)"
+            }
+        }
+
+        /* Responsive table demo */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            border: 1px solid #eef2f7;
+            text-align: left
+        }
+
+        /* stacking table on very small screens */
+        @media (max-width:420px) {
+
+            .table,
+            .table thead,
+            .table tbody,
+            .table tr,
+            .table th,
+            .table td {
+                display: block
+            }
+
+            .table thead {
+                display: none
+            }
+
+            .table tr {
+                margin-bottom: 10px
+            }
+
+            .table td {
+                padding: 8px 10px
+            }
+
+            .table td:before {
+                content: attr(data-label);
+                display: block;
+                font-weight: 700;
+                margin-bottom: 6px
+            }
+        }
+
+        footer {
+            margin: 32px 0 80px;
+            color: var(--muted);
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bp-indicator" aria-hidden="true"></div>
+    <div class="viewport" id="vp">W: — px</div>
+
+    <header>
+        <div class="wrap">
+            <h1>Demo de Media Queries — Responsividade</h1>
+            <p class="lead">Altere o tamanho da janela (ou use o modo responsivo do navegador) para ver como o layout e
+                estilos reagem em diferentes breakpoints.</p>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="controls">
+            <div><strong>Paleta:</strong></div>
+            <div class="swatch" style="background:var(--accent)"></div>
+            <div class="swatch" style="background:#34d399"></div>
+            <div class="swatch" style="background:#f97316"></div>
+        </div>
+
+        <section>
+            <h2>Grid adaptativo</h2>
+            <p class="lead">Os cartões mudam de 1 → 2 → 3 → 4 colunas conforme a largura aumenta.</p>
+
+            <div class="grid" id="demoGrid">
+                <!-- sample cards -->
+                <?php for($i=1;$i<=12;$i++): ?>
+                <article class="card">
+                    <h3>Cartão
+                        <?php echo $i; ?>
+                    </h3>
+                    <p>Exemplo de conteúdo para testar redimensionamento e quebra de linhas. Width-aware responsive
+                        layout.</p>
+                </article>
+                <?php endfor; ?>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tabela responsiva</h2>
+            <p class="lead">A tabela empilha as células em telas muito pequenas.</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Curso</th>
+                        <th>Progresso</th>
+                        <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Nome">Maria</td>
+                        <td data-label="Curso">ADS</td>
+                        <td data-label="Progresso">75%</td>
+                        <td data-label="Nota">8.5</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nome">João</td>
+                        <td data-label="Curso">SI</td>
+                        <td data-label="Progresso">60%</td>
+                        <td data-label="Nota">6.4</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Nome">Ana</td>
+                        <td data-label="Curso">CC</td>
+                        <td data-label="Progresso">90%</td>
+                        <td data-label="Nota">9.2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <small>Breakpoints demonstrados: 320, 480, 768, 1024, 1366, 1600, 1920 px. Use o devtools para testar cada
+                um.</small>
+        </footer>
+    </main>
+
+    <script>
+        // show viewport width live
+        const vp = document.getElementById('vp');
+        function updateVP() { vp.textContent = 'Width: ' + Math.round(window.innerWidth) + 'px'; }
+        window.addEventListener('resize', updateVP);
+        updateVP();
+    </script>
+</body>
+
+</html>
