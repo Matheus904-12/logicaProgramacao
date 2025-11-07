@@ -105,3 +105,138 @@ input[type="submit"]:hover {
     background-color: #f8d7da;
     color: #721c24;
 }
+
+/* Edit container design for atualizarCadastro.php */
+.edit-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+    border: 1px solid #e0e7ff;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(30, 64, 175, 0.08);
+}
+
+.buscar-form {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.form-group label { font-weight: 600; margin-bottom: 6px; display:block; }
+.form-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e1; }
+
+.form-actions { margin-top: 12px; display:flex; justify-content:flex-end; }
+
+.btn { padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer; }
+.btn-primary { background: #2563eb; color: #fff; }
+.btn-primary:hover { background: #1e40af; }
+.btn-success { background: #16a34a; color: #fff; }
+.btn-success:hover { background: #15803d; }
+
+/* mensagem aviso */
+.mensagem.aviso { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+
+@media (max-width: 720px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .buscar-form { flex-direction: column; align-items: stretch; }
+    main { height: auto; }
+}
+
+/* Users list (Lista de usuários) styles */
+section h3 { margin-top: 20px; color: #0f172a; font-size: 1.1rem; }
+section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+
+section thead {
+    background: linear-gradient(90deg, #f8fafc, #eef2ff);
+}
+
+section th, section td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eef2f7;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+section tbody tr:nth-child(even) { background: #fbfdff; }
+section tbody tr:hover { background: #f1f5f9; }
+
+/* Action button inside the table rows */
+.action-form { display:inline-block; margin:0; }
+.action-btn { padding:6px 10px; border-radius:6px; border:none; cursor:pointer; font-size:13px; }
+.action-btn.edit { background:#2563eb; color:#fff; }
+.action-btn.edit:hover { background:#1e40af; }
+
+/* If the table contains a small inline form with a button, style it to match */
+table form { display:inline; }
+table button { background: #2563eb; color: #fff; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+table button:hover { background: #1e40af; }
+
+/* Responsive table: on very small screens turn rows into cards */
+@media (max-width: 520px) {
+    section table, section thead, section tbody, section th, section td, section tr { display: block; }
+    section thead { display: none; }
+    section tr { margin-bottom: 12px; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(2,6,23,0.04); }
+    section td { border: none; padding: 8px 10px; position: relative; }
+    section td:before { content: attr(data-label); font-weight: 600; display:block; margin-bottom:6px; color:#334155; }
+}
+
+/* Layout: place the edit section and the users list side-by-side */
+.page-grid {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 24px auto;
+}
+.page-grid > section { flex: 1 1 0; }
+.page-grid > section:first-child { flex: 0 0 62%; }
+.page-grid > section:last-child { flex: 0 0 38%; }
+
+@media (max-width: 920px) {
+    .page-grid { flex-direction: column; }
+    .page-grid > section { flex: 1 1 auto; }
+}
+
+/* Override generic form card styling for inline/table forms so they don't become large white cards */
+table form,
+section table form,
+table .action-form {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: inline-block !important;
+}
+
+/* Smaller, compact action buttons for table rows */
+.action-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.action-btn.edit { background: #2563eb; color: #fff; }
+.action-btn.edit:hover { background: #1e40af; }
+
+/* ensure table buttons align nicely */
+section td .action-btn { vertical-align: middle; }
